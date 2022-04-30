@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Link, NavLink } from 'react-router-dom'
 
 import Home from './components/home'
 import Posts from './components/posts'
@@ -19,9 +19,12 @@ const App = () => {
 
           <ul className="nav nav-pills">
             <li className="nav-item">
-              <Link to="/" className="nav-link">
+              <NavLink 
+                to="/" 
+                className={({isActive})=> isActive ? 'nav-link active':'nav-link' }
+              >
                 Home
-              </Link>
+              </NavLink>
             </li>
             <li className="nav-item">
               <Link to="posts" className="nav-link">
