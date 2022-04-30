@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route, Link, NavLink } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Link, NavLink, Navigate } from 'react-router-dom'
 
 import Home from './components/home'
 import Posts from './components/posts'
@@ -6,6 +6,9 @@ import Profile from './components/profile';
 import PostItem from './components/postsItem';
 
 const App = () => {
+  const user = true;
+
+
   return(
     <BrowserRouter>
       <div className="container">
@@ -43,7 +46,11 @@ const App = () => {
           <Route path="/" element={<Home />}></Route>
           <Route path="posts" element={<Posts/>}></Route>
           <Route path="posts/:id" element={<PostItem/>}></Route>
-          <Route path="profile" element={<Profile />}></Route>
+          {/* <Route path="profile" element={<Profile />}></Route> */}
+          <Route path="profile" element={
+            user ?<Profile />:<Navigate replace to="/" />}
+          >
+          </Route>
         </Routes>
       </div>
 
