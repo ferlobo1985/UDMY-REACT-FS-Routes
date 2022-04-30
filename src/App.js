@@ -51,6 +51,14 @@ const App = () => {
             user ?<Profile />:<Navigate replace to="/" />}
           >
           </Route>
+          <Route
+            path="*"
+            element={
+              <>
+                <h1>Sorry, nothing found</h1>
+              </>
+            }
+          />
         </Routes>
       </div>
 
