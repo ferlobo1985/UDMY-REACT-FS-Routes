@@ -6,9 +6,16 @@ import Profile from './components/profile';
 
 const App = () => {
   return(
-    <>
-      App
-    </>
+    <BrowserRouter>
+      <header>
+        Header
+      </header>
+      <Routes>
+        <Route path="/" element={<Home/>}/>
+        <Route path="posts" element={<Posts/>}/>
+        <Route path="profile" element={<Profile/>}/>
+      </Routes>
+    </BrowserRouter>
   )
 }
 
