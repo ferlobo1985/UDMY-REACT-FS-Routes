@@ -7,20 +7,41 @@ import Profile from './components/profile';
 const App = () => {
   return(
     <BrowserRouter>
-      <header>
-        <Link to="">Home</Link><br/>
-        <Link to="posts">Posts</Link><br/>
-        <Link to={{
-          pathname:'profile',
-          hash:'#steve',
-          search:'?profile=true'
-        }}>Profile</Link>
-      </header>
-      <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="posts" element={<Posts/>}/>
-        <Route path="profile" element={<Profile/>}/>
-      </Routes>
+      <div className="container">
+        <header className="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+          <Link
+            to="/"
+            className="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none"
+          >
+            <span className="fs-4">My app</span>
+          </Link>
+
+          <ul className="nav nav-pills">
+            <li className="nav-item">
+              <Link to="/" className="nav-link">
+                Home
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="posts" className="nav-link">
+                Posts
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link to="profile" className="nav-link">
+                Profile
+              </Link>
+            </li>
+          </ul>
+        </header>
+
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="posts" element={<Posts/>}></Route>
+          <Route path="profile" element={<Profile />}></Route>
+        </Routes>
+      </div>
+
     </BrowserRouter>
   )
 }
