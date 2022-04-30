@@ -4,6 +4,9 @@ import Home from './components/home'
 import Posts from './components/posts'
 import Profile from './components/profile';
 import PostItem from './components/postsItem';
+import Users from './components/users';
+import Guests from './components/guests';
+import Admins from './components/admins';
 
 const App = () => {
   const user = true;
@@ -39,6 +42,11 @@ const App = () => {
                 Profile
               </Link>
             </li>
+            <li className="nav-item">
+              <Link to="users" className="nav-link">
+                Users
+              </Link>
+            </li>
           </ul>
         </header>
 
@@ -50,6 +58,10 @@ const App = () => {
           <Route path="profile" element={
             user ?<Profile />:<Navigate replace to="/" />}
           >
+          </Route>
+          <Route path="users" element={<Users/>}>
+            <Route path="guests" element={<Guests/>}></Route>
+            <Route path="admins" element={<Admins/>}></Route>
           </Route>
           <Route
             path="*"
